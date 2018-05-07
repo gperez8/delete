@@ -19,9 +19,7 @@
     "eslint": "./node_modules/.bin/eslint ./src/",
     "eslint:watch": "watch ./node_modules/.bin/eslint ./src/"
   },
-  "pre-commit": {
-    "run": ["eslint"]
-  },
+  "pre-commit": ["eslint"],
   "devDependencies": {
     "enzyme": "^3.3.0",
     "eslint-config-airbnb": "^16.1.0",
