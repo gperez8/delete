@@ -19,12 +19,8 @@
     "eslint": "./node_modules/.bin/eslint ./src/",
     "eslint:watch": "watch ./node_modules/.bin/eslint ./src/"
   },
-  "precommit": {
-    "run": [
-      "eslint"
-    ],
-    "silent": true,
-    "colors": true
+  "pre-commit": {
+    "run": ["eslint"]
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
