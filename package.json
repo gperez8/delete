@@ -1,0 +1,39 @@
+{
+  "name": "delete",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apollo-boost": "^0.1.6",
+    "react": "^16.3.2",
+    "react-apollo": "^2.1.4",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "eslint": "./node_modules/.bin/eslint ./src/",
+    "eslint:watch": "watch ./node_modules/.bin/eslint ./src/"
+  },
+  "precommit": {
+    "run": [
+      "eslint"
+    ],
+    "silent": true,
+    "colors": true
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "pre-commit": "^1.2.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-mock-store": "^1.5.1"
+  }
+}
