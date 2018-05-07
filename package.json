@@ -12,6 +12,7 @@
     "redux": "^4.0.0"
   },
   "scripts": {
+  	"precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -19,7 +20,7 @@
     "eslint": "./node_modules/.bin/eslint ./src/",
     "eslint:watch": "watch ./node_modules/.bin/eslint ./src/"
   },
-  "pre-commit": ["eslint"],
+  "pre-commit": ["precommit-msg", "eslint"],
   "devDependencies": {
     "enzyme": "^3.3.0",
     "eslint-config-airbnb": "^16.1.0",
