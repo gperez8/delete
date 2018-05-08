@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 const App = () => (
 	<div>
@@ -7,4 +9,13 @@ const App = () => (
 	</div>
 )
 
-export default App;
+const user = gql`
+    query{
+      user(id:2){
+        name
+        email
+      }
+    }
+`
+
+export default graphql(user)(App);
