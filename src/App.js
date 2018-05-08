@@ -3,7 +3,7 @@ import logo from './logo.svg';
 
 const App = () => (
 	<div>
-	/* Components Containers */
+		<h1>Hola Mundo</h1>	
 	</div>
 )
 

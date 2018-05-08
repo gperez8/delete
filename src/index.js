@@ -13,6 +13,6 @@ const store = createStore(rootReducer, enhancer);
 render(
 	<ApolloProvider store={store} client={client}>
 		<App />
-	<ApolloProvider />,
+	</ApolloProvider>,
 	document.getElementById('root')
 );
