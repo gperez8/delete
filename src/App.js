@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -10,7 +12,7 @@ class App extends Component {
 
 		console.log(this.props.data);
 		return (
-			<div>
+			<div key={1}>
 				 {this.props.data.loading &&
 				 	<p>LOADING</p>
 				 }
@@ -28,7 +30,7 @@ class App extends Component {
 
 const user = gql`
 	query {
-		user(id: 2) {
+		user(id: 1) {
 			name
 			email
 		}

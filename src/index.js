@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+
 import React from 'react';
 import { render } from 'react-dom';
 // import { createStore, applyMiddleware } from 'redux';

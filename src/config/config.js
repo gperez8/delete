@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+
 //import { applyMiddleware } from 'redux';
 import ApolloClient from 'apollo-boost';
 
