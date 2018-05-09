@@ -1,8 +1,8 @@
-import { applyMiddleware } from 'redux';
+//import { applyMiddleware } from 'redux';
 import ApolloClient from 'apollo-boost';
 
 export const client = new ApolloClient({
-	uri: 'https://w5xlvm3vzz.lp.gql.zone/graphql',
+	uri: 'http://localhost:8000/graphql',
 });
 
 export const getMiddleware = () => {

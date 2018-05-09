@@ -1,22 +1,38 @@
-import React, { Components } from 'react';
+import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import logo from './logo.svg';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
+//import logo from './logo.svg';
 
-const App = () => (
-	<div>
-		<h1>Hola</h1>
-	</div>
-);
+class App extends Component {
+	render() {
 
-const RatesQuery = gql`
-  query {
-    rates(currency: "USD") {
-      currency
-    }
-  }
+		const { user } = this.props.data;
+
+		console.log(this.props.data);
+		return (
+			<div>
+				 {this.props.data.loading &&
+				 	<p>LOADING</p>
+				 }
+
+				 {!this.props.data.loading &&
+					<div>
+						<h1>{ user.name }</h1>
+						<h2>{ user.email }</h2>
+					</div>	
+				 }
+			</div>
+		)
+	}
+}
+
+const user = gql`
+	query {
+		user(id:1){
+			name
+			email
+		}
+	}
 `
 
-export default graphql(RatesQuery)(App);
+export default graphql(user)(App);

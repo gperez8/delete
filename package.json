@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.6",
+    "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "react": "^16.3.2",
     "react-apollo": "^2.1.4",
@@ -29,5 +30,10 @@
     "husky": "^0.14.3",
     "redux-devtools-extension": "^2.13.2",
     "redux-mock-store": "^1.5.1"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8000/graphql"
+    }
   }
 }
