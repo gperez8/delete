@@ -2,6 +2,8 @@ import React, { Components } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import logo from './logo.svg';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 const App = () => (
 	<div>
@@ -16,4 +18,5 @@ const RatesQuery = gql`
     }
   }
 `
+
 export default graphql(RatesQuery)(App);

@@ -12,4 +12,4 @@ export const getMiddleware = () => {
 	}
 
 	return applyMiddleware(promiseMiddleware, localStorageMiddleware, createLogger());*/
-};
+}
