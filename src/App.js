@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { Components } from 'react';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import logo from './logo.svg';
 
 const App = () => (
 	<div>
-	/* Components Containers */
+		<h1>Hola</h1>
 	</div>
-)
+);
 
-export default App;
+const RatesQuery = gql`
+  query {
+    rates(currency: "USD") {
+      currency
+    }
+  }
+`
+export default graphql(RatesQuery)(App);
