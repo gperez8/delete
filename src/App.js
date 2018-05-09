@@ -28,7 +28,7 @@ class App extends Component {
 
 const user = gql`
 	query {
-		user(id:1){
+		user(id: 2) {
 			name
 			email
 		}
