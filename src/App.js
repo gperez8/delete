@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 const drawerWidth = 240;
 
@@ -129,14 +130,13 @@ class MiniDrawer extends React.Component {
             </IconButton>
           </div>
           <Divider />
-
+          <List>{mailFolderListItems}</List>
           <Divider />
-
+          <List>{otherMailFolderListItems}</List>
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
-          <h1>Contenido</h1>
         </main>
       </div>
     );
