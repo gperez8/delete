@@ -14,6 +14,9 @@ import { closeDrawer } from '../../actions/Header/actionsCreators';
 
 
 const SideBar = ({open, closeDrawer}) => {
+
+    console.log('open', open);
+
     const styles = theme => ({                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
         drawerPaper: {
             position: 'relative',
@@ -59,6 +62,12 @@ const SideBar = ({open, closeDrawer}) => {
     )
 }
 
+const hola = (state) => {
+    console.log('state', state);
+    console.log(state);
+    return state
+} 
+
 
 SideBar.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -66,7 +75,7 @@ SideBar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  open: state
+  open: state.ReducerHeader.drawer.open
 });
 
 const mapDispatchToProps = dispatch => ({
