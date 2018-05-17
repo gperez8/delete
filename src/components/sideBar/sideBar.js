@@ -54,7 +54,6 @@ const SideBar = ({open, closeDrawer}) => {
             </div>
 
             <Divider />
-                
             <Divider />
         </Drawer>
     )

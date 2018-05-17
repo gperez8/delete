@@ -10,8 +10,13 @@ import { client  } from './config/config';
 import rootReducer from './reducers/rootReducer';
 import App from './App';
 
+const state = {
+	drawer: {
+		open: true
+	}
+}
 
-const store = createStore(rootReducer, {} ,composeWithDevTools());
+const store = createStore(rootReducer, state, composeWithDevTools());
 
 /* const enhancer = composeWithDevTools(getMiddleware());
 const store = createStore(rootReducer, enhancer); */

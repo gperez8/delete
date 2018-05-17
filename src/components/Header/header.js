@@ -104,8 +104,13 @@ Header.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
+const hola = (state) => {
+    console.log(state);
+}
+
+
 const mapStateToProps = state => ({
-    open: state
+    open: hola(state)
 });
 
 const mapDispatchToProps = dispatch => ({
