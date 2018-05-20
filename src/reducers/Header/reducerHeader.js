@@ -9,7 +9,7 @@ import {
 const stateInitial = {
 	drawer: {
 		openSideBar: false,
-		openMenuProfile: false
+		openMenuProfile: null
 	}
 }
 
@@ -27,11 +27,11 @@ const ReducerHeader = (state = stateInitial, action = {}) => {
 			return  (newState)
 		case OPEN_PROFILE:
 			newState = {...state};
-			newState.drawer.openMenuProfile = true;
+			newState.drawer.openMenuProfile = action.payload.event;
 			return (newState)
 		case CLOSE_PROFILE:
 			newState = {...state};
-			newState.drawer.openMenuProfile = false;
+			newState.drawer.openMenuProfile = null;
 			return (newState)
 		default:
 			return state;

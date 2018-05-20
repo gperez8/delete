@@ -59,7 +59,7 @@ const Header = ({
 							<IconButton
 								aria-owns={openMenuProfile ? 'menu-appbar' : null}
 								aria-haspopup="true"
-								onClick={() => openProfile()}
+								onClick={(event) => openProfile(event)}
 								color="inherit"
 							>
 								<AccountCircle />
@@ -75,7 +75,7 @@ const Header = ({
 									vertical: 'top',
 									horizontal: 'right',
 								}}
-								open={openMenuProfile}
+								open={Boolean(openMenuProfile)}
 								onClose={() => closeProfile()}
 							>
 								<MenuItem onClick={() => closeProfile()}>Profile</MenuItem>
@@ -107,7 +107,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	openDrawer: () => dispatch(openDrawer()),
-	openProfile: () => dispatch(openProfile()),
+	openProfile: (event) => dispatch(openProfile(event)),
 	closeProfile: () => dispatch(closeProfile())
 });
 

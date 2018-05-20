@@ -19,10 +19,11 @@ const closeDrawer = () => ({
 	}
 });
 
-const openProfile = () => ({
+const openProfile = (event) => ({
 	type: OPEN_PROFILE,
 	payload: {
-		description: OPEN_PROFILE
+		description: OPEN_PROFILE,
+		event: event.currentTarget
 	}
 })
 
