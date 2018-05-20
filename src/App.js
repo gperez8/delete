@@ -1,12 +1,17 @@
 import React from 'react';
-import SideBar from './components/Header/header';
-import MiniDrawer from './components/sideBar/sideBar';
+import Header from './components/Header/header';
+import SideBar from './components/sideBar/sideBar';
+import Typography from '@material-ui/core/Typography';
 
 const App = () => (
-  <div>
-    <MiniDrawer />
+  <div >
+  	<Header />
     <SideBar />
-  </div> 
+    <main >
+		<div  />
+		<Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+	</main>
+  </div>
 );
 
 /*const user = gql`

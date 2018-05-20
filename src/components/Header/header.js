@@ -12,109 +12,64 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { compose } from 'redux';
 import { connect } from 'react-redux'
 import { openDrawer } from '../../actions/Header/actionsCreators';
 
 
+import styles from './headerCss';
 //export withStyles(styles, { withTheme: true })(Header);
 
 
-const Header = ({open, openDrawer}) => {
+const Header = ({open, openDrawer, classes, theme}) => {
 
-    const drawerWidth = 240;
+	console.log('Component Header', open);
 
-    const styles = theme => ({
-        root: {
-            flexGrow: 1,
-            height: 'auto',
-            zIndex: 1,
-            overflow: 'hidden',
-            position: 'relative',
-            display: 'flex',
-        },
-        appBar: {
-            zIndex: theme.zIndex.drawer + 1,
-            transition: theme.transitions.create(['width', 'margin'], {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen,
-            }),
-        },
-        appBarShift: {
-            marginLeft: drawerWidth,
-            width: `calc(100% - ${drawerWidth}px)`,
-            transition: theme.transitions.create(['width', 'margin'], {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
-        },
-        menuButton: {
-            marginLeft: 12,
-            marginRight: 36,
-        },
-        hide: {
-            display: 'none',
-        },
-        toolbar: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            padding: '0 8px',
-            ...theme.mixins.toolbar,
-        },
-        content: {
-            flexGrow: 1,
-            backgroundColor: theme.palette.background.default,
-            padding: theme.spacing.unit * 3,
-        },
-    });
+	return(
+		<div>
+			<AppBar
+				position="absolute"
+				className={classNames(classes.appBar, open && classes.appBarShift)}
+				>
+					<Toolbar disableGutters={!open}>
+						<IconButton
+							color="inherit"
+							aria-label="open drawer"
+							onClick={() => openDrawer()}
+							className={classNames(classes.menuButton, open && classes.hide)}
+							>
+							<MenuIcon />
+						</IconButton>
 
-    return(
-        <div className={styles.root}>
-            <AppBar
-                position="absolute"
-                className={classNames(styles.appBar, open && styles.appBarShift)}
-                >
-                    <Toolbar disableGutters={!open}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => openDrawer()}
-                            className={classNames(styles.menuButton, open && styles.hide)}
-                            >
-                            <MenuIcon />
-                        </IconButton>
-
-                        <Typography variant="title" color="inherit" noWrap>
-                            Mini variant drawer
-                        </Typography>
-                    </Toolbar>
-            </AppBar>
-
-            <main className={styles.content}>
-                <div className={styles.toolbar} />
-                <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
-            </main>
-        </div>
-    );
+						<Typography variant="title" color="inherit" noWrap>
+							Mini variant drawer
+						</Typography>
+					</Toolbar>
+			</AppBar>
+		</div>
+	);
 }
 
 
 Header.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired,
+	theme: PropTypes.object.isRequired,
 };
 
 const hola = (state) => {
-    console.log(state);
+	console.log('state', state.ReducerHeader.drawer.open);
 }
 
 
 const mapStateToProps = state => ({
-    open: hola(state)
+	open: state.ReducerHeader.drawer.open
 });
 
 const mapDispatchToProps = dispatch => ({
-    openDrawer: () => dispatch(openDrawer())
+	openDrawer: () => dispatch(openDrawer())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default compose(
+	withStyles(styles, { withTheme: true }),
+	connect(mapStateToProps, mapDispatchToProps)
+	)(Header);

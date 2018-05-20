@@ -8,57 +8,44 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { closeDrawer } from '../../actions/Header/actionsCreators';
+import { mailFolderListItems, otherMailFolderListItems } from '../../tileData';
+import { compose } from 'redux';
 
+import	styles from '../Header/headerCss';
 
-const SideBar = ({open, closeDrawer}) => {
-
-    console.log('open', open);
-
-    const styles = theme => ({                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-        drawerPaper: {
-            position: 'relative',
-            whiteSpace: 'nowrap',
-            width: 350,
-            transition: theme.transitions.create('width', {
-              easing: theme.transitions.easing.sharp,
-              duration: theme.transitions.duration.enteringScreen,
-            }),
-        },
-        drawerPaperClose: {
-            overflowX: 'hidden',
-            transition: theme.transitions.create('width', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen,
-            }),
-            width: theme.spacing.unit * 7,
-                [theme.breakpoints.up('sm')]: {
-                width: theme.spacing.unit * 9,
-            },
-        },
-    });
-
+const SideBar = ({open, closeDrawer, classes, theme}) => {
     return(
-        <Drawer
-            variant="permanent"
-            classes={{
-                paper: classNames(styles.drawerPaper, true && styles.drawerPaperClose),
-            }}
-            open={open}
-        >
-            <div className={styles.toolbar}>
-                <IconButton>
-                    <IconButton onClick={() => closeDrawer()}>
-                        {styles.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
-                </IconButton>
-            </div>
+    	<div>
+	        <Drawer
+	            variant="permanent"
+	            classes={{
+	                paper: classNames(styles.drawerPaperClose),
+	            }}
+	            open={false}
+	        >
+	            <div className={styles.toolbar}>
+	                <IconButton>
+	                    <IconButton onClick={() => closeDrawer()}>
+	                        {styles.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+	                    </IconButton>
+	                </IconButton>
+	            </div>
 
-            <Divider />
-            <Divider />
-        </Drawer>
+	            <Divider />
+	            <List>{mailFolderListItems}</List>
+	            <Divider />
+	            <List>{otherMailFolderListItems}</List>
+	        </Drawer>
+
+			<main >
+
+				<Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+			</main>
+        </div>
     )
 }
 
@@ -66,13 +53,13 @@ const hola = (state) => {
     console.log('state', state);
     console.log(state);
     return state
-} 
-
+}
 
 SideBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired,
+	theme: PropTypes.object.isRequired,
 };
+
 
 const mapStateToProps = state => ({
   open: state.ReducerHeader.drawer.open
@@ -82,4 +69,7 @@ const mapDispatchToProps = dispatch => ({
   closeDrawer: () => dispatch(closeDrawer())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
+export default compose(
+	withStyles(styles, { withTheme: true }),
+	connect(mapStateToProps, mapDispatchToProps)
+	)(SideBar);

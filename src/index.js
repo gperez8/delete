@@ -16,7 +16,6 @@ const store = createStore(rootReducer, composeWithDevTools());
 const store = createStore(rootReducer, enhancer); */
 
 render(
-
 	<Provider store={store}>
 		<ApolloProvider client={client}>
 			<App />
