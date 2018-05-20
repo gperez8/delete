@@ -45,7 +45,7 @@ const Header = ({
 						<IconButton
 							color="inherit"
 							aria-label="open drawer"
-							onClick={() => openDrawer()}
+							onClick={openDrawer}
 							className={classNames(classes.menuButton, openSideBar && classes.hide)}
 							>
 							<MenuIcon />
@@ -57,9 +57,8 @@ const Header = ({
 
 						<div>
 							<IconButton
-								aria-owns={openMenuProfile ? 'menu-appbar' : null}
-								aria-haspopup="true"
-								onClick={(event) => openProfile(event)}
+								aria-owns={ Boolean(openMenuProfile) ? 'menu-appbar' : null }
+								onClick={ openProfile }
 								color="inherit"
 							>
 								<AccountCircle />
@@ -76,10 +75,10 @@ const Header = ({
 									horizontal: 'right',
 								}}
 								open={Boolean(openMenuProfile)}
-								onClose={() => closeProfile()}
+								onClose={closeProfile}
 							>
-								<MenuItem onClick={() => closeProfile()}>Profile</MenuItem>
-								<MenuItem onClick={() => closeProfile()}>My account</MenuItem>
+								<MenuItem onClick={closeProfile}>Profile</MenuItem>
+								<MenuItem onClick={closeProfile}>My account</MenuItem>
 							</Menu>
 						</div>
 					</Toolbar>
