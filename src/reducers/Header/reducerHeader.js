@@ -1,11 +1,38 @@
-import { OPEN_DRAWER, CLOSE_DRAWER } from '../../actions/Header/actionsTypes';
+import {
+	OPEN_DRAWER,
+	CLOSE_DRAWER,
+	OPEN_PROFILE,
+	CLOSE_PROFILE
+} from '../../actions/Header/actionsTypes';
 
-const ReducerHeader = (state = {drawer: { openSideBar: false }}, action = {}) => {
+
+const stateInitial = {
+	drawer: {
+		openSideBar: false,
+		openMenuProfile: false
+	}
+}
+
+const ReducerHeader = (state = stateInitial, action = {}) => {
+	let newState = {};
+
 	switch(action.type) {
 		case OPEN_DRAWER:
-			return  ({drawer: { openSideBar: true }})
+			newState = {...state};
+			newState.drawer.openSideBar = true;
+			return  (newState)
 		case CLOSE_DRAWER:
-			return  ({drawer: { openSideBar: false }})
+			newState = {...state};
+			newState.drawer.openSideBar = false;
+			return  (newState)
+		case OPEN_PROFILE:
+			newState = {...state};
+			newState.drawer.openMenuProfile = true;
+			return (newState)
+		case CLOSE_PROFILE:
+			newState = {...state};
+			newState.drawer.openMenuProfile = false;
+			return (newState)
 		default:
 			return state;
 		break;

@@ -20,16 +20,18 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import { compose } from 'redux';
 import { connect } from 'react-redux'
-import { openDrawer } from '../../actions/Header/actionsCreators';
+import { openDrawer, openProfile, closeProfile } from '../../actions/Header/actionsCreators';
 
 
 import styles from './headerCss';
 //export withStyles(styles, { withTheme: true })(Header);
 
 
-const Header = ({openSideBar, openDrawer, classes, theme}) => {
+const Header = ({
+	openSideBar, openMenuProfile, openDrawer, openProfile,
+	closeProfile,  classes, theme }) => {
 
-	console.log('Component Header', openSideBar);
+	console.log('Component Header openMenuProfile', openMenuProfile);
 
 	const open = false;
 
@@ -55,16 +57,16 @@ const Header = ({openSideBar, openDrawer, classes, theme}) => {
 
 						<div>
 							<IconButton
-								aria-owns={open ? 'menu-appbar' : null}
+								aria-owns={openMenuProfile ? 'menu-appbar' : null}
 								aria-haspopup="true"
-								onClick={this.handleMenu}
+								onClick={() => openProfile()}
 								color="inherit"
 							>
-							<AccountCircle />
+								<AccountCircle />
 							</IconButton>
 							<Menu
 								id="menu-appbar"
-								anchorEl={false}
+								anchorEl={openMenuProfile}
 								anchorOrigin={{
 									vertical: 'top',
 									horizontal: 'right',
@@ -73,11 +75,11 @@ const Header = ({openSideBar, openDrawer, classes, theme}) => {
 									vertical: 'top',
 									horizontal: 'right',
 								}}
-								open={open}
-								onClose={this.handleClose}
+								open={openMenuProfile}
+								onClose={() => closeProfile()}
 							>
-								<MenuItem onClick={this.handleClose}>Profile</MenuItem>
-								<MenuItem onClick={this.handleClose}>My account</MenuItem>
+								<MenuItem onClick={() => closeProfile()}>Profile</MenuItem>
+								<MenuItem onClick={() => closeProfile()}>My account</MenuItem>
 							</Menu>
 						</div>
 					</Toolbar>
@@ -99,11 +101,14 @@ const hola = (state) => {
 }
 
 const mapStateToProps = state => ({
-	openSideBar: state.ReducerHeader.drawer.openSideBar
+	openSideBar: state.ReducerHeader.drawer.openSideBar,
+	openMenuProfile: state.ReducerHeader.drawer.openMenuProfile
 });
 
 const mapDispatchToProps = dispatch => ({
-	openDrawer: () => dispatch(openDrawer())
+	openDrawer: () => dispatch(openDrawer()),
+	openProfile: () => dispatch(openProfile()),
+	closeProfile: () => dispatch(closeProfile())
 });
 
 export default compose(
