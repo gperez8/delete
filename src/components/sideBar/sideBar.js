@@ -17,15 +17,15 @@ import { compose } from 'redux';
 
 import	styles from '../Header/headerCss';
 
-const SideBar = ({open, closeDrawer, classes, theme}) => {
+const SideBar = ({openSideBar, closeDrawer, classes, theme}) => {
     return(
     	<div>
 	        <Drawer
 	            variant="permanent"
 	            classes={{
-	                paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose),
+	                paper: classNames(classes.drawerPaper, !openSideBar && classes.drawerPaperClose),
 	            }}
-	            open={open}
+	            open={openSideBar}
 	        >
 	            <div className={classes.toolbar}>
 	                <IconButton>
@@ -57,11 +57,11 @@ SideBar.propTypes = {
 
 
 const mapStateToProps = state => ({
-  open: state.ReducerHeader.drawer.open
+	openSideBar: state.ReducerHeader.drawer.openSideBar
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeDrawer: () => dispatch(closeDrawer())
+	closeDrawer: () => dispatch(closeDrawer())
 });
 
 export default compose(

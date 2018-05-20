@@ -63,6 +63,9 @@ const styles = theme => ({
 		backgroundColor: theme.palette.background.default,
 		padding: theme.spacing.unit * 3,
 	},
+	flex: {
+    	flex: 1,
+  	},
 });
 
 export default styles;
