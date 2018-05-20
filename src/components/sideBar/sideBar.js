@@ -23,14 +23,14 @@ const SideBar = ({open, closeDrawer, classes, theme}) => {
 	        <Drawer
 	            variant="permanent"
 	            classes={{
-	                paper: classNames(styles.drawerPaperClose),
+	                paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose),
 	            }}
-	            open={false}
+	            open={open}
 	        >
-	            <div className={styles.toolbar}>
+	            <div className={classes.toolbar}>
 	                <IconButton>
 	                    <IconButton onClick={() => closeDrawer()}>
-	                        {styles.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+	                        {classes.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
 	                    </IconButton>
 	                </IconButton>
 	            </div>
@@ -40,11 +40,6 @@ const SideBar = ({open, closeDrawer, classes, theme}) => {
 	            <Divider />
 	            <List>{otherMailFolderListItems}</List>
 	        </Drawer>
-
-			<main >
-
-				<Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
-			</main>
         </div>
     )
 }
@@ -72,4 +67,4 @@ const mapDispatchToProps = dispatch => ({
 export default compose(
 	withStyles(styles, { withTheme: true }),
 	connect(mapStateToProps, mapDispatchToProps)
-	)(SideBar);
+)(SideBar);

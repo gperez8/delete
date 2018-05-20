@@ -60,7 +60,6 @@ const hola = (state) => {
 	console.log('state', state.ReducerHeader.drawer.open);
 }
 
-
 const mapStateToProps = state => ({
 	open: state.ReducerHeader.drawer.open
 });
@@ -72,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
 export default compose(
 	withStyles(styles, { withTheme: true }),
 	connect(mapStateToProps, mapDispatchToProps)
-	)(Header);
+)(Header);
