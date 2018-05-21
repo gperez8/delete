@@ -78,7 +78,7 @@ const Header = ({
 								onClose={closeProfile}
 							>
 								<MenuItem onClick={closeProfile}>Profile</MenuItem>
-								<MenuItem onClick={closeProfile}>My account</MenuItem>
+								<MenuItem onClick={closeProfile}>Logout</MenuItem>
 							</Menu>
 						</div>
 					</Toolbar>
