@@ -17,9 +17,6 @@ import {
 	IconButton,
 } from '@material-ui/core';
 
-
-
-
 const SideBar = ({openSideBar, closeDrawer, classes, theme}) => {
     return(
     	<div>
@@ -31,11 +28,9 @@ const SideBar = ({openSideBar, closeDrawer, classes, theme}) => {
 	            open={openSideBar}
 	        >
 	            <div className={classes.toolbar}>
-
-	                    <IconButton onClick={closeDrawer}>
-	                        {classes.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-	                    </IconButton>
-
+                    <IconButton onClick={closeDrawer}>
+                        {classes.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                    </IconButton>
 	            </div>
 
 	            <Divider />

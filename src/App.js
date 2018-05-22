@@ -5,10 +5,7 @@ import SideBar from './components/sideBar/sideBar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './components/Header/headerCss';
-
 import { Hola1, Hola2, Hola3, Hola4 } from './components/hola';
-
-
 
 const App = ({ classes }) => (
 	<div className={classes.root}>
