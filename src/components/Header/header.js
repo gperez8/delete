@@ -10,21 +10,13 @@ import styles from './headerCss';
 import { openDrawer, openProfile, closeProfile } from '../../actions/Header/actionsCreators';
 
 import {
-	Drawer,
 	AppBar,
 	Toolbar,
-	List,
 	Typography,
-	Divider,
 	IconButton,
 	MenuItem,
 	Menu
 } from '@material-ui/core'
-
-import {
-	ChevronLeftIcon,
-	ChevronRightIcon
-} from '@material-ui/icons'
 
 
 const Header = ({
@@ -97,8 +89,8 @@ Header.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	openSideBar: state.ReducerHeader.drawer.openSideBar,
-	openMenuProfile: state.ReducerHeader.drawer.openMenuProfile
+	openSideBar: state.ReducerHeader.openSideBar,
+	openMenuProfile: state.ReducerHeader.openMenuProfile
 });
 
 const mapDispatchToProps = dispatch => ({

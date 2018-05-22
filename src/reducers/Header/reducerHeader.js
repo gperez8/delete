@@ -7,35 +7,34 @@ import {
 
 
 const stateInitial = {
-	drawer: {
-		openSideBar: false,
-		openMenuProfile: null
-	}
+	openSideBar: false,
+	openMenuProfile: null
 }
 
 const ReducerHeader = (state = stateInitial, action = {}) => {
-	let newState = {};
-
 	switch(action.type) {
 		case OPEN_DRAWER:
-			newState = {...state};
-			newState.drawer.openSideBar = true;
-			return  (newState)
+			return  ({
+				...state,
+				openSideBar: true
+			})
 		case CLOSE_DRAWER:
-			newState = {...state};
-			newState.drawer.openSideBar = false;
-			return  (newState)
+			return  ({
+				...state,
+				openSideBar: false
+			})
 		case OPEN_PROFILE:
-			newState = {...state};
-			newState.drawer.openMenuProfile = action.payload.event;
-			return (newState)
+			return ({
+				...state,
+				openMenuProfile: action.payload.event
+			})
 		case CLOSE_PROFILE:
-			newState = {...state};
-			newState.drawer.openMenuProfile = null;
-			return (newState)
+			return ({
+				...state,
+				openMenuProfile: null
+			})
 		default:
 			return state;
-		break;
 	}
 }
 
