@@ -1,39 +1,42 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
-
-import { compose } from 'redux';
-import { connect } from 'react-redux'
+import MenuIcon from '@material-ui/icons/Menu';
+import styles from './headerCss';
 import { openDrawer, openProfile, closeProfile } from '../../actions/Header/actionsCreators';
 
+import {
+	Drawer,
+	AppBar,
+	Toolbar,
+	List,
+	Typography,
+	Divider,
+	IconButton,
+	MenuItem,
+	Menu
+} from '@material-ui/core'
 
-import styles from './headerCss';
-//export withStyles(styles, { withTheme: true })(Header);
+import {
+	ChevronLeftIcon,
+	ChevronRightIcon
+} from '@material-ui/icons'
 
 
 const Header = ({
-	openSideBar, openMenuProfile, openDrawer, openProfile,
-	closeProfile,  classes, theme }) => {
+	openSideBar,
+	openMenuProfile,
+	openDrawer,
+	openProfile,
+	closeProfile,
+	classes,
+	theme
 
-	console.log('Component Header openMenuProfile', openMenuProfile);
-
-	const open = false;
+	}) => {
 
 	return(
 		<div>
@@ -82,8 +85,6 @@ const Header = ({
 							</Menu>
 						</div>
 					</Toolbar>
-
-
 			</AppBar>
 		</div>
 	);
@@ -94,10 +95,6 @@ Header.propTypes = {
 	classes: PropTypes.object.isRequired,
 	theme: PropTypes.object.isRequired,
 };
-
-const hola = (state) => {
-	console.log('state', state.ReducerHeader.drawer.openSideBar);
-}
 
 const mapStateToProps = state => ({
 	openSideBar: state.ReducerHeader.drawer.openSideBar,

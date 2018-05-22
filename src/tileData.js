@@ -49,7 +49,7 @@ export const mailFolderListItems = (
 					<ListItemIcon>
 					<DraftsIcon />
 					</ListItemIcon>
-					<ListItemText primary="Hola" />
+					<ListItemText primary="Email" />
 				</ListItem>
 			</Link>
 	</div>
