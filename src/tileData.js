@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,33 +12,47 @@ import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
 
+
 export const mailFolderListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <InboxIcon />
-      </ListItemIcon>
-      <ListItemText primary="Inbox" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <StarIcon />
-      </ListItemIcon>
-      <ListItemText primary="Starred" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <SendIcon />
-      </ListItemIcon>
-      <ListItemText primary="Send mail" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DraftsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Drafts" />
-    </ListItem>
-  </div>
+	<div>
+			<Link to='/'>
+				<ListItem button>
+					<ListItemIcon>
+						<InboxIcon />
+					</ListItemIcon>
+
+					<ListItemText primary="Inbox" />
+				</ListItem>
+			</Link>
+
+			<Link to='/hola2'>
+				<ListItem button>
+					<ListItemIcon>
+						<StarIcon />
+					</ListItemIcon>
+
+					<ListItemText primary="Starred" />
+				</ListItem>
+			</Link>
+
+			<Link to='/hola3'>
+				<ListItem button>
+					<ListItemIcon>
+						<SendIcon />
+					</ListItemIcon>
+					<ListItemText primary="Send mail" />
+				</ListItem>
+			</Link>
+
+			<Link to='/hola4'>
+				<ListItem button>
+					<ListItemIcon>
+					<DraftsIcon />
+					</ListItemIcon>
+					<ListItemText primary="Hola" />
+				</ListItem>
+			</Link>
+	</div>
 );
 
 export const otherMailFolderListItems = (

@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { ApolloProvider } from 'react-apollo';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { client  } from './config/config';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import rootReducer from './reducers/rootReducer';
 import App from './App';
 
@@ -18,7 +19,9 @@ const store = createStore(rootReducer, enhancer); */
 render(
 	<Provider store={store}>
 		<ApolloProvider client={client}>
-			<App />
+			<Router>
+				<App />
+			</Router>
 		</ApolloProvider>
 	</Provider>,
 	document.getElementById('root')
